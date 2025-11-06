@@ -8,7 +8,13 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-200: oklch(88.5% 0.062 18.334);
+    --color-red-400: oklch(70.4% 0.191 22.216);
+    --color-red-800: oklch(44.4% 0.177 26.899);
     --color-amber-700: oklch(55.5% 0.163 48.998);
+    --color-yellow-400: oklch(85.2% 0.199 91.936);
+    --color-green-400: oklch(79.2% 0.209 151.711);
+    --color-green-800: oklch(44.8% 0.119 151.328);
+    --color-blue-800: oklch(42.4% 0.199 265.638);
     --color-slate-800: oklch(27.9% 0.041 260.031);
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -166,62 +172,23 @@
   }
 }
 @layer utilities {
-  .-order-1 {
-    order: calc(1 * -1);
-  }
   .order-1 {
     order: 1;
-  }
-  .order-none {
-    order: 0;
   }
   .m-577 {
     margin: calc(var(--spacing) * 577);
   }
-  .mr-auto {
-    margin-right: auto;
-  }
   .flex {
     display: flex;
-  }
-  .inline-flex {
-    display: inline-flex;
   }
   .h-20 {
     height: calc(var(--spacing) * 20);
   }
-  .h-50 {
-    height: calc(var(--spacing) * 50);
+  .h-auto {
+    height: auto;
   }
   .w-20 {
     width: calc(var(--spacing) * 20);
-  }
-  .w-40 {
-    width: calc(var(--spacing) * 40);
-  }
-  .w-full {
-    width: 100%;
-  }
-  .shrink {
-    flex-shrink: 1;
-  }
-  .shrink-0 {
-    flex-shrink: 0;
-  }
-  .grow {
-    flex-grow: 1;
-  }
-  .grow-1 {
-    flex-grow: 1;
-  }
-  .grow-2 {
-    flex-grow: 2;
-  }
-  .grow-3 {
-    flex-grow: 3;
-  }
-  .grow-4 {
-    flex-grow: 4;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -229,51 +196,20 @@
   .flex-col {
     flex-direction: column;
   }
-  .flex-row {
-    flex-direction: row;
-  }
-  .flex-nowrap {
-    flex-wrap: nowrap;
-  }
-  .flex-wrap {
-    flex-wrap: wrap;
-  }
   .items-center {
     align-items: center;
-  }
-  .items-end {
-    align-items: flex-end;
-  }
-  .items-start {
-    align-items: flex-start;
-  }
-  .items-stretch {
-    align-items: stretch;
   }
   .justify-between {
     justify-content: space-between;
   }
-  .justify-center {
-    justify-content: center;
-  }
-  .gap-3 {
-    gap: calc(var(--spacing) * 3);
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
   }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
   }
-  .self-end {
-    align-self: flex-end;
-  }
-  .self-stretch {
-    align-self: stretch;
-  }
   .rounded-lg {
     border-radius: var(--radius-lg);
-  }
-  .rounded-l {
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
   }
   .border-4 {
     border-style: var(--tw-border-style);
@@ -282,20 +218,11 @@
   .border-red-200 {
     border-color: var(--color-red-200);
   }
-  .border-white {
-    border-color: var(--color-white);
-  }
   .bg-amber-700 {
     background-color: var(--color-amber-700);
   }
   .bg-slate-800 {
     background-color: var(--color-slate-800);
-  }
-  .bg-white {
-    background-color: var(--color-white);
-  }
-  .fill-white {
-    fill: var(--color-white);
   }
   .px-7 {
     padding-inline: calc(var(--spacing) * 7);
@@ -306,8 +233,78 @@
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
   }
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
+  }
   .text-white {
     color: var(--color-white);
+  }
+  .max-lg\:bg-blue-800 {
+    @media (width < 64rem) {
+      background-color: var(--color-blue-800);
+    }
+  }
+  .max-md\:bg-green-800 {
+    @media (width < 48rem) {
+      background-color: var(--color-green-800);
+    }
+  }
+  .max-sm\:bg-red-800 {
+    @media (width < 40rem) {
+      background-color: var(--color-red-800);
+    }
+  }
+  .sm\:bg-red-400 {
+    @media (width >= 40rem) {
+      background-color: var(--color-red-400);
+    }
+  }
+  .sm\:bg-red-800 {
+    @media (width >= 40rem) {
+      background-color: var(--color-red-800);
+    }
+  }
+  .sm\:max-lg\:bg-red-400 {
+    @media (width >= 40rem) {
+      @media (width < 64rem) {
+        background-color: var(--color-red-400);
+      }
+    }
+  }
+  .md\:order-0 {
+    @media (width >= 48rem) {
+      order: 0;
+    }
+  }
+  .md\:order-1 {
+    @media (width >= 48rem) {
+      order: 1;
+    }
+  }
+  .md\:flex-col {
+    @media (width >= 48rem) {
+      flex-direction: column;
+    }
+  }
+  .md\:flex-row {
+    @media (width >= 48rem) {
+      flex-direction: row;
+    }
+  }
+  .md\:bg-green-400 {
+    @media (width >= 48rem) {
+      background-color: var(--color-green-400);
+    }
+  }
+  .md\:bg-red-800 {
+    @media (width >= 48rem) {
+      background-color: var(--color-red-800);
+    }
+  }
+  .lg\:bg-yellow-400 {
+    @media (width >= 64rem) {
+      background-color: var(--color-yellow-400);
+    }
   }
 }
 @property --tw-rotate-x {
