@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme  {
+    --font-inter: "Inter, sans-serif";
+
+    --color-principal-pagina: #121416;
+    --color-button: #DCE8F3;
+    --color-borde-pagina: #2C3135;
+
+    --color-secundario-pagina: #1E2124;
+    --color-textos-card: #929BA2;
+
+    --breakpoint-md: 52rem;
+    --breakpoint-alex: 70rem;
+}
+
+:root {
+    --icono-menu-cerrado: url('../assets/x.png');
+    --icono-menu-abierto: url('../assets/menu.png');
+
+    --hero-image: linear-gradient(#000000c5, #000000d8), url('../assets/aprender.jpg');
+}
